@@ -729,3 +729,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/c,c++,rust,python,python,ruby,rust,go,java,kotlin,node,elixir,commonlisp,racket,linux,macos,windows,vim,emacs,intellij+all,visualstudiocode
+.bash_history
+go-bin
+go-pkg
+.config
+__debug_bin

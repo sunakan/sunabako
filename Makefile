@@ -1,2 +1,2 @@
-include shared-makefiles/Makefile.gitignore
-include shared-makefiles/Makefile.help
+include makefiles/gitignore.mk
+include makefiles/help.mk

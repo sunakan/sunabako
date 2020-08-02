@@ -3,7 +3,7 @@
 ################################################################################
 IGNORE_OS       := linux,macos,windows
 IGNORE_EDITOR   := vim,emacs,intellij+all,visualstudiocode
-IGNORE_LANGUAGE := c,c++,rust,python,python,ruby,rust,go,java,kotlin,node,elixir,commonlisp,racket
+IGNORE_LANGUAGE := c,c++,rust,python,ruby,rust,go,java,kotlin,node,elixir,commonlisp,racket
 IGNORE_LIST     := $(IGNORE_LANGUAGE),$(IGNORE_OS),$(IGNORE_EDITOR)
 GIT_IGNORE_URL  := https://www.toptal.com/developers/gitignore/api/$(IGNORE_LIST)
 
@@ -15,3 +15,13 @@ GIT_IGNORE_URL  := https://www.toptal.com/developers/gitignore/api/$(IGNORE_LIST
 
 .PHONY: setup-gitignore
 setup-gitignore: .gitignore ## .gitignoreをsetup
+	@make --no-print-directory add-my-go-env-for-gitignore
+
+.PHONY: add-my-go-env-for-gitignore
+add-my-go-env-for-gitignore:
+	grep '^.bash_history$$' .gitignore || echo '.bash_history' >> .gitignore
+	grep '^go-bin$$' .gitignore || echo 'go-bin' >> .gitignore
+	grep '^go-pkg$$' .gitignore || echo 'go-pkg' >> .gitignore
+	grep '^.cache$$' .gitignore || echo '.cache' >> .gitignore
+	grep '^.config$$' .gitignore || echo '.config' >> .gitignore
+	grep '^__debug_bin$$' .gitignore || echo '__debug_bin' >> .gitignore
